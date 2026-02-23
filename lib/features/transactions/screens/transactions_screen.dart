@@ -1,8 +1,11 @@
 import 'package:finance_manager/features/transactions/bloc/tranactions_bloc.dart';
+import 'package:finance_manager/features/transactions/screens/components/balance_widget.dart';
+import 'package:finance_manager/features/transactions/screens/components/transactions_list_widget.dart';
 import 'package:finance_manager/repositories/transactions_Repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 class TransactionsScreen extends StatelessWidget {
   TransactionsScreen({super.key});
@@ -12,49 +15,26 @@ class TransactionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TransactionBloc(TransactionsRepository())..add(LoadTransactions()),
+      create: (context) =>
+          TransactionBloc(TransactionsRepository())..add(LoadTransactions()),
       child: Scaffold(
-        body: Column(
-          children: [
-            Text("Good Morning $username"),
-            Text("$fullMonthName $year"),
-            SizedBox(height: 40,),
-            TransactionsListWidget()
-          ],
+        backgroundColor: Color(0xffF3F7FF),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: .start,
+            children: [
+              Text("Good Morning $username"),
+              Text("$fullMonthName $year"),
+
+              SizedBox(height: 20),
+              BalanceWidget(),
+              SizedBox(height: 20),
+              TransactionsListWidget(),
+            ],
+          ),
         ),
       ),
-    );
-  }
-}
-
-class TransactionsListWidget extends StatefulWidget {
-  const TransactionsListWidget({super.key});
-
-  @override
-  State<TransactionsListWidget> createState() => _TransactionsListWidgetState();
-}
-
-class _TransactionsListWidgetState extends State<TransactionsListWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<TransactionBloc, TransactionState>(
-      builder: (context, state) {
-        switch (state) {
-          case TransactionLoading():
-            return CircularProgressIndicator();
-          case TranactionError():
-            return Text(state.message);
-          case TransactionLoaded():
-            return ListView.builder(
-              itemCount: state.transactions.length,
-              itemBuilder: (context , index){
-              final entry = state.transactions[index];
-              return Text(entry.title);
-            });
-          default: return SizedBox();
-        }
-        
-      },
     );
   }
 }
