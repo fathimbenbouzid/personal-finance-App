@@ -9,7 +9,7 @@ class BalanceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150,
+      padding: .symmetric(vertical: 16 , horizontal: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -24,15 +24,17 @@ class BalanceWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: .center,
         children: [
-          Text("Your Total Balance"),
-          Text("1,600,000 DZ"),
+          Text(
+            "Your Total Balance",
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          Text("1,600,000 DZ", style: Theme.of(context).textTheme.bodyLarge),
+          SizedBox(height: 10,),
           Row(
             mainAxisSize: .max,
             children: [
               Expanded(child: TotalExpensesWidget()),
-              Expanded(
-                child: TotalIncomeWidget(),
-              ),
+              Expanded(child: TotalIncomeWidget()),
             ],
           ),
         ],

@@ -40,6 +40,7 @@ dependencies:
   bloc: ^9.2.0
   flutter_svg: ^2.2.3
   lottie: ^3.3.2
+  google_fonts: ^8.0.2
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,8 @@ flutter:
     - assets/Loading Files.lottie
     - assets/svg/Error.svg
     - assets/svg/NoDocuments.svg
+    - assets/svg/arrow-narrow-up.svg
+    - assets/svg/arrow-narrow-down.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

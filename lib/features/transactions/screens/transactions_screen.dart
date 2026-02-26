@@ -24,12 +24,14 @@ class TransactionsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: .start,
             children: [
-              Text("Good Morning $username"),
-              Text("$fullMonthName $year"),
+              Text("Good Morning $username" , style: Theme.of(context).textTheme.headlineLarge,),
+              Text("$fullMonthName $year" , style: Theme.of(context).textTheme.headlineSmall,),
 
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               BalanceWidget(),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+              Text("Recent Transaction" , style: Theme.of(context).textTheme.headlineMedium,),
+              SizedBox(height: 10),
               TransactionsListWidget(),
             ],
           ),
