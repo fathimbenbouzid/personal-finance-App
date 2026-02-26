@@ -12,10 +12,10 @@ class TransactionCategory {
   });
   TransactionCategory.fromMap(Map<String, dynamic> map)
     : id = map['id'],
-      name = map['name'],
-      icon = map['icon'],
+      name = map['name'] ?? '',
+      icon = map['icon'] ?? '',
       isIncome = map['isIncome'],
-      color = map['color'];
+      color = map['color'] ?? '';
   Map<String , dynamic> toMap(){
     return{
       'id':id,

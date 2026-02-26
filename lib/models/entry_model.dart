@@ -1,4 +1,5 @@
 import 'package:finance_manager/models/category_model.dart';
+import 'package:finance_manager/repositories/category_repository.dart';
 
 class Entry {
   int? id;
@@ -8,6 +9,9 @@ class Entry {
   Entry({required this.title, required this.description});
   Entry.fromMap(Map<String, dynamic> map)
     : title = map['title'],
-      description = map['description'],
-      category = TransactionCategory.fromMap(map['category']);
+      description = map['description'] ?? ' ',
+      category = map['category'] != null
+          ? TransactionCategory.fromMap(map['category'])
+          : null,
+      id = map['id'];
 }

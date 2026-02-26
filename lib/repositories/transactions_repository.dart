@@ -1,11 +1,15 @@
+import 'package:finance_manager/models/category_model.dart';
 import 'package:finance_manager/models/entry_model.dart';
+import 'package:finance_manager/repositories/category_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class TransactionsRepository {
   final _client = Supabase.instance.client;
+  final _categoryRepository = CategoryRepository();
 
   Future<List<Entry>> getAll() async{
-    final response = await _client.from('Transaction').select();
+    final response = await _client.from('Transaction').select('*, category:Category(*)');
+    print(response);
     return response.map((map)=> Entry.fromMap(map)).toList();
   }
   Future<bool> addTransaction(Map<String,dynamic> data) async{
