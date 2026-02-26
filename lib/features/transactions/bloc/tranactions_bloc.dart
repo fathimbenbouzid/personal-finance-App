@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:finance_manager/models/entry_model.dart';
-import 'package:finance_manager/repositories/transactions_Repository.dart';
+import 'package:finance_manager/repositories/transactions_repository.dart';
 
 part 'tranactions_event.dart';
 part 'tranactions_state.dart';

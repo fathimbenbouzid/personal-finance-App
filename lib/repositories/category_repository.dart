@@ -1,5 +1,4 @@
 import 'package:finance_manager/models/category_model.dart';
-import 'package:finance_manager/models/entry_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CategoryRepository {

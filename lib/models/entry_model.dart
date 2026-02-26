@@ -1,5 +1,4 @@
 import 'package:finance_manager/models/category_model.dart';
-import 'package:finance_manager/repositories/category_repository.dart';
 
 class Entry {
   int? id;

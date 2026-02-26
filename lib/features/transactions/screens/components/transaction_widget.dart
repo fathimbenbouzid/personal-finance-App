@@ -10,6 +10,7 @@ Widget previewTransactionWidget() => const TransactionWidget();
 
 class TransactionWidget extends StatelessWidget {
   const TransactionWidget({super.key});
+  final int amount = 160; 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,8 +22,8 @@ class TransactionWidget extends StatelessWidget {
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text("Trnsaction title"), CustomCategoryLabel()]),
-          Text("160.00DZD" , style: Theme.of(context).textTheme.titleSmall,)
+            children: [Text("Trnsaction title" ,style : Theme.of(context).textTheme.titleSmall ), CustomCategoryLabel()]),
+          Text("${amount.toStringAsFixed(2)}DZD" , style: Theme.of(context).textTheme.titleSmall,)
         ],
       ),
     );
@@ -40,10 +41,10 @@ class CustomCategoryLabel extends StatelessWidget {
         border: BoxBorder.all(color: _color.withAlpha(140)),
         color: _color.withAlpha(80),
       ),
-      padding: EdgeInsets.all(2),
+      padding: EdgeInsets.symmetric(horizontal:6,vertical: 2),
       child: Text(
         "Category",
-        style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 8 , color: _color),
+        style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 6 , color: _color),
       ),
     );
   }
