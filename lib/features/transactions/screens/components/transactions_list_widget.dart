@@ -1,4 +1,5 @@
 import 'package:finance_manager/features/transactions/bloc/tranactions_bloc.dart';
+import 'package:finance_manager/features/transactions/screens/components/transaction_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,7 +45,7 @@ class _TransactionsListWidgetState extends State<TransactionsListWidget> {
                       itemCount: state.transactions.length,
                       itemBuilder: (context, index) {
                         final entry = state.transactions[index];
-                        return Text(entry.title);
+                        return TransactionWidget(entry: entry,category: entry.category!,);
                       },
                     );
                   }

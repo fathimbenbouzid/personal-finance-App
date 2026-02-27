@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 class TransactionCategory {
   int? id;
   String name;
   String icon;
-  String color;
+  Color color;
   bool? isIncome;
   TransactionCategory({
     required this.name,
@@ -15,14 +17,19 @@ class TransactionCategory {
       name = map['name'] ?? '',
       icon = map['icon'] ?? '',
       isIncome = map['isIncome'],
-      color = map['color'] ?? '';
-  Map<String , dynamic> toMap(){
-    return{
-      'id':id,
-      'name':name,
-      'icon':icon,
-      'color':color,
-      'isIncome':isIncome
+      color = Color(int.parse(map['color'], radix: 16) + 0xFF000000);
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'icon': icon,
+      'color': color,
+      'isIncome': isIncome,
     };
+  }
+
+  Color hexToColor(String hex) {
+    hex = hex.replaceAll('#', '');
+    return Color(int.parse(hex, radix: 16) + 0xFF000000);
   }
 }

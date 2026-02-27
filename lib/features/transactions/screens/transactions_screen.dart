@@ -1,6 +1,5 @@
 import 'package:finance_manager/features/transactions/bloc/tranactions_bloc.dart';
 import 'package:finance_manager/features/transactions/screens/components/balance_widget.dart';
-import 'package:finance_manager/features/transactions/screens/components/transaction_widget.dart';
 import 'package:finance_manager/features/transactions/screens/components/transactions_list_widget.dart';
 import 'package:finance_manager/repositories/transactions_repository.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +25,6 @@ class TransactionsScreen extends StatelessWidget {
             children: [
               Text("Good Morning $username" , style: Theme.of(context).textTheme.headlineLarge,),
               Text("$fullMonthName $year" , style: Theme.of(context).textTheme.headlineSmall,),
-              TransactionWidget(),
               SizedBox(height: 10),
               BalanceWidget(),
               SizedBox(height: 10),
