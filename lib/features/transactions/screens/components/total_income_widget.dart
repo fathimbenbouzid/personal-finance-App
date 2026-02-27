@@ -29,7 +29,7 @@ class TotalIncomeWidget extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               Text(
-                "Monthly Income",
+                "Income",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Text(

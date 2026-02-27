@@ -24,7 +24,7 @@ class TotalExpensesWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             children: [
-              Text("Monthly Expenses" , style: Theme.of(context).textTheme.titleLarge,), Text("1,600,000 DZ" , style: Theme.of(context).textTheme.titleMedium,),
+              Text("Expenses" , style: Theme.of(context).textTheme.titleLarge,), Text("1,600,000 DZ" , style: Theme.of(context).textTheme.titleMedium,),
             ],
           )],
       ),

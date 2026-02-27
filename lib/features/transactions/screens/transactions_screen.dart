@@ -16,22 +16,24 @@ class TransactionsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           TransactionBloc(TransactionsRepository())..add(LoadTransactions()),
-      child: Scaffold(
-        backgroundColor: Color(0xffF3F7FF),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: .start,
-            children: [
-              Text("Good Morning $username" , style: Theme.of(context).textTheme.headlineLarge,),
-              Text("$fullMonthName $year" , style: Theme.of(context).textTheme.headlineSmall,),
-              SizedBox(height: 10),
-              BalanceWidget(),
-              SizedBox(height: 10),
-              Text("Recent Transaction" , style: Theme.of(context).textTheme.headlineMedium,),
-              SizedBox(height: 10),
-              TransactionsListWidget(),
-            ],
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Color(0xffF3F7FF),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                Text("Good Morning $username" , style: Theme.of(context).textTheme.headlineLarge,),
+                Text("$fullMonthName $year" , style: Theme.of(context).textTheme.headlineSmall,),
+                SizedBox(height: 10),
+                BalanceWidget(),
+                SizedBox(height: 10),
+                Text("Recent Transaction" , style: Theme.of(context).textTheme.headlineMedium,),
+                SizedBox(height: 10),
+                TransactionsListWidget(),
+              ],
+            ),
           ),
         ),
       ),
